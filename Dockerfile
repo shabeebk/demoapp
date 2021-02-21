@@ -14,8 +14,8 @@ RUN apt-get update -y \
  && apt-get install --no-install-recommends -y openssl
 RUN ls /etc/nginx/conf.d/
 RUN openssl req -x509 -nodes -days 365 \
-    -subj "/C=IN/ST=KA/L=Bangalore/O=Mishipay/CN=3.238.7.30" \
-    -addext "subjectAltName=DNS:3.238.7.30" \
+    -subj "/C=IN/ST=KA/L=Bangalore/O=Mishipay/CN=3.238.186.111" \
+    -addext "subjectAltName=DNS:3.238.186.111" \
     -newkey rsa:2048 \
     -keyout /etc/ssl/private/nginx-selfsigned.key \
     -out /etc/ssl/certs/nginx-selfsigned.crt

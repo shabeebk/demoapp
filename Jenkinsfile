@@ -20,8 +20,8 @@ pipeline {
       steps {
         sh "Copying packaged files to $SERVER_IP"
         sh "scp -i .ssh/id_rsa -r \
-            src public \ 
-            package.json yarn.lock \ 
+            src public \
+            package.json yarn.lock \
             docker-compose.yml Dockerfile .dockerignore \
             ec2-user@$SERVER_IP:mishipay"
       }

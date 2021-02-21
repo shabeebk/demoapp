@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          This is build by Shabeeb Khalid.
+          This is build by Shabeeb Khalid to showcase app deployment to Mishipay.
         </p>
         <a
           className="App-link"

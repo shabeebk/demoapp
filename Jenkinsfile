@@ -2,7 +2,7 @@ pipeline {
   agent any
   environment {
     CI = 'true'
-    SERVER_IP=$SERVER_IP
+    SERVER_IP='$SERVER_IP'
   }
   stages {
     stage('Build-Test') {

@@ -15,16 +15,13 @@ In the project directory, you can see
 
 ### Deployment of docker container.
 
-Do clone the repository in your local machine and run `docker-compose up --force-recreate --build -d` **(sudo required if you do not have admin access)** inside the directory if you wanted to build the image and run the container locally.
-
-**[sudo required while using the linux bash commands (like docker-compose) if you do not have admin access]**
-
+Do clone the repository in your local machine and run `docker-compose up --force-recreate --build -d` **(sudo required if you do not have admin access)** inside the directory if you wanted to build the image and run the container locally.  
+**[sudo required while using the linux bash commands (like docker-compose) if you do not have admin access]**  
 To test if this has launched the container, please use `docker-compose ps`.
 
-**Note: This is not recommended for production setup! There are a lot of flaws in this.**
-
-**1. This setup is not using the lightweight Nginx docker image.**
-**2. This setup is not using a CA certified chained SSL certificate. Instead uses the self signed certificate.**
-**3. In this setup, ReactJS app is served as static build files. To run app as a dynamic application, we should use multiple container, in which once will serve the app and the other will be nginx web server.**
-**4. Static IP address of the instance is not being passed as variable/env. The current way in which this module is written is not recommended.**
-**5. Most of the steps in deployment pipeline is just bash script. We should be able to make use of leverages by using different plugins instead of this plain bash script.**
+**Note: This is not recommended for production setup! There are a lot of flaws in this.**  
+**1. This setup is not using the lightweight Nginx docker image.**  
+**2. This setup is not using a CA certified chained SSL certificate. Instead uses the self signed certificate.**  
+**3. In this setup, ReactJS app is served as static build files. To run app as a dynamic application, we should use multiple container, in which once will serve the app and the other will be nginx web server.**   
+**4. Static IP address of the instance is not being passed as variable/env. The current way in which this module is written is not recommended.**  
+**5. Most of the steps in deployment pipeline is just bash script. We should be able to make use of leverages by using different plugins instead of this plain bash script.**  

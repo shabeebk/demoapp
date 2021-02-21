@@ -30,7 +30,7 @@ pipeline {
       agent none
       steps {
         sh 'echo "Recreating and deploying the image"'
-        sh 'scp -i /.ssh/id_rsa "cd mishipay && docker-compose up --force-recreate --build -d"'
+        sh 'ssh -i /.ssh/id_rsa "cd mishipay && docker-compose up --force-recreate --build -d"'
       }
     }
   }

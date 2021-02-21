@@ -4,6 +4,9 @@ pipeline {
 		CI = 'true'
 	}
 	stages {
+		agent {
+			docker { image 'node:12.13.0-alpine' }
+		}
 		stage('Build-Test') {
 			steps {
 				sh 'yarn install'

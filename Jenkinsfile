@@ -20,7 +20,7 @@ pipeline {
       steps {
         sh 'pwd'
         sh 'echo "Copying packaged files to 3.238.7.30"'
-        sh "scp -i .ssh/id_rsa -r \
+        sh "scp -i /.ssh/id_rsa -r \
             src public \
             package.json yarn.lock \
             docker-compose.yml Dockerfile .dockerignore \

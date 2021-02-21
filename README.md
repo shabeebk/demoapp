@@ -11,7 +11,7 @@ In the project directory, you can see
 ### Deployment of docker container.  
 Do clone the repository in your local machine and run `docker-compose up --force-recreate --build -d` **(sudo required if you do not have admin access)** inside the directory if you wanted to build the image and run the container locally.  
 **[sudo required while using the linux bash commands (like docker-compose) if you do not have admin access]**  
-To test if this has launched the container, please use `docker-compose ps`.  
+To test if this has launched the container, please use `docker-compose ps` or open [https://localhost](https://localhost).  
 **Note: This is not recommended for production setup! There are a lot of flaws in this.**  
 **1. This setup is not using the lightweight Nginx docker image.**  
 **2. This setup is not using a CA certified chained SSL certificate. Instead uses the self signed certificate.**  

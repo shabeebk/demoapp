@@ -10,10 +10,6 @@ pipeline {
       }
       steps {
         sh 'yarn install'
-      }
-    }
-    stage('Run-Test') {
-      steps {
         sh 'yarn test --all --watchAll=false'
       }
     }

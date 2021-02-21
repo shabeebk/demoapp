@@ -18,13 +18,19 @@ pipeline {
     stage('Artifact-Push') {
       agent none
       steps {
-        sh 'pwd'
         sh 'echo "Copying packaged files to 3.238.7.30"'
-        sh "scp -i /.ssh/id_rsa -r \
+        sh 'scp -i /.ssh/id_rsa -r \
             src public conf \
             package.json yarn.lock \
             docker-compose.yml Dockerfile .dockerignore \
-            ec2-user@3.238.7.30:mishipay"
+            ec2-user@3.238.7.30:mishipay'
+      }
+    }
+    stage('Deploy-App') {
+      agent none
+      steps {
+        sh 'echo "Recreating and deploying the image"'
+        sh 'scp -i /.ssh/id_rsa "cd mishipay && docker-compose up --force-recreate --build -d"'
       }
     }
   }

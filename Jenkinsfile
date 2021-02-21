@@ -20,6 +20,7 @@ pipeline {
       steps {
         sh 'echo "Copying packaged files to 3.238.186.111"'
         sh 'scp -i /.ssh/id_rsa -r \
+            -o StrictHostKeyChecking=no \
             src public conf \
             package.json yarn.lock \
             docker-compose.yml Dockerfile .dockerignore \
@@ -30,7 +31,7 @@ pipeline {
       agent none
       steps {
         sh 'echo "Recreating and deploying the image"'
-        sh 'ssh -i /.ssh/id_rsa ec2-user@3.238.186.111 "cd mishipay && docker-compose up --force-recreate --build -d"'
+        sh 'ssh -i /.ssh/id_rsa -o StrictHostKeyChecking=no ec2-user@3.238.186.111 "cd mishipay && docker-compose up --force-recreate --build -d"'
       }
     }
   }

@@ -2,7 +2,6 @@ pipeline {
   agent any
   environment {
     CI = 'true'
-    SERVER_IP='$SERVER_IP'
   }
   stages {
     stage('Build-Test') {
@@ -17,13 +16,14 @@ pipeline {
       }
     }
     stage('Artifact-Push') {
+      agent none
       steps {
-        sh 'echo "Copying packaged files to $SERVER_IP"'
+        sh 'echo "Copying packaged files to 3.238.7.30"'
         sh "scp -i .ssh/id_rsa -r \
             src public \
             package.json yarn.lock \
             docker-compose.yml Dockerfile .dockerignore \
-            ec2-user@$SERVER_IP:mishipay"
+            ec2-user@3.238.7.30:mishipay"
       }
     }
   }

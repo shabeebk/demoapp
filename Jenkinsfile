@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Artifact-Push') {
       steps {
-        sh "Copying packaged files to $SERVER_IP"
+        sh 'echo "Copying packaged files to $SERVER_IP"'
         sh "scp -i .ssh/id_rsa -r \
             src public \
             package.json yarn.lock \

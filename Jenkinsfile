@@ -2,6 +2,7 @@ pipeline {
   agent any
   environment {
     CI = 'true'
+    SERVER_IP=$SERVER_IP
   }
   stages {
     stage('Build-Test') {
@@ -13,6 +14,16 @@ pipeline {
         sh 'ls'
         sh 'yarn install'
         sh 'yarn test --all --watchAll=false'
+      }
+    }
+    stage('Artifact-Push') {
+      steps {
+        sh "Copying packaged files to $SERVER_IP"
+        sh "scp -i .ssh/id_rsa -r \
+            src public \ 
+            package.json yarn.lock \ 
+            docker-compose.yml Dockerfile .dockerignore \
+            ec2-user@$SERVER_IP:mishipay"
       }
     }
   }

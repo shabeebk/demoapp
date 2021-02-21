@@ -4,8 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Using this repository, you will be able to deploy a demo ReactJS app in a container and serve it with an Nginx inside the container.
 
-## What all it includes?
-
+## What all it includes?  
 In the project directory, you can see
 1. Jenkinsfile : This file is to be used to run the jenkins pipeline for this project. During pipeline run, jenkins job will launch a docker container of node and run the test in the code after installing all package dependencies. Then the job will copy all code to the instance, build the image inside the instance and deploy the docker image which contains Nginx and ReactJS application.
 2. Dockerfile : This is a multi stage Dockerfile which can be used to build the image which contains ReactJS application and Nginx web server in it. This file will also generates a self signed SSL certificate for Nginx.

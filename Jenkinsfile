@@ -18,6 +18,7 @@ pipeline {
     stage('Artifact-Push') {
       agent none
       steps {
+        sh 'pwd'
         sh 'echo "Copying packaged files to 3.238.7.30"'
         sh "scp -i .ssh/id_rsa -r \
             src public \
